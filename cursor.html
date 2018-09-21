@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		canvas {
+			background: red;
+		}
+		textarea {
+			display:block;
+			width: 100%;
+			min-height: 30em;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="16" height="16"></canvas>
+	<textarea class="url"></textarea>
+	<script>
+		const canvas = document.querySelector("canvas");
+		const ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(8,8,6,0,2*Math.PI);
+		ctx.strokeStyle="rgba(255,255,255,0.8)";
+		ctx.lineWidth=3;
+		ctx.stroke();
+		ctx.strokeStyle="rgba(0,0,0,0.7)";
+		ctx.lineWidth=1;
+		ctx.stroke();
+		const url = canvas.toDataURL("image/png");
+		document.querySelector(".url").innerText = url;
+	</script>
+</body>
+</html>
